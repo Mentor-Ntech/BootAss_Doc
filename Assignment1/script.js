@@ -1,40 +1,54 @@
 'use strict'
 
-const Car = function(make, speed) {
-    this.make = make;
-    this.speed = speed
+class Car  {
+    constructor(make, speed) {
+        this.make = make;
+        this.speed = speed
+    }
+
+    //Method
+    accelerate() {
+        this.speed += 10;
+        console.log(`${this.make} is going at ${this.speed} km/h`)
+    }
+
+    brake() {
+        this.speed -= 5;
+        console.log(`${this.make} is going at ${this.speed} km/h`)
+    }
+    get getSpeedUS() {
+        return `${this/1.6}mi/hr`
+    }
+
+    set setSpeedUS(newSpeed) {
+        return `${newSpeed * 1.6}mi/hr`
+    }
+
 }
+const myCar1 = new Car('BMW', 120);
+myCar1.accelerate()
+myCar1.accelerate()
+myCar1.accelerate()
+myCar1.brake()
+myCar1.accelerate()
+myCar1.accelerate()
+myCar1.brake();
 
-Car.prototype.calcAclt = function() {
-    return  this.speed +10
+
+class Account {
+    constructor(owner, pin,) {
+        this.owner = owner;
+        this.pin = pin;
+        this.movements = [200, 500, 300, 200]
+    }
+    setFirstEl(mov) {
+        console.log(this.movements.push(mov))
+    }
+   introduce() {
+    console.log(`My account name is ${this.owner}, with pin ${this.pin} with account transaction ${this.movements}`)   
+
+   }
 }
+const James = new Account('James Bob',3333,)
+ James.introduce()
 
-
-const firstCar = new Car('BMW', 120);
-const secondCar = new Car('Mercedes', 95)
-console.log(`Your car is running at ${firstCar.calcAclt()} km/hr`)
-console.log(`Your car is running at ${secondCar.calcAclt()} km/hr`)
-console.log(firstCar);
-console.log(secondCar);
-
-
-
-const Car2 = function(make, speed) {
-    this.make = make;
-    this.speed = speed
-}
-
-Car.prototype.calcBrk = function() {
-    return this.speed - 5
-}
-
-const firstCarB = new Car('BMW', 120);
-const secondCarB = new Car('Mercedes', 95)
-console.log(`Your car speed limit is ${firstCarB.calcBrk()}`)
-console.log(`Your car speed limit is ${secondCarB.calcBrk()}`)
-console.log(firstCarB);
-console.log(secondCarB);
-
-
-
- 
